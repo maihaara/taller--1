@@ -4,14 +4,18 @@ import java.util.List;
 
 public class Usuarios<librosPrestados>{
        public String nombre;
+       public Boolean b;
+       public Boolean documento2;
        public String documento;
-       public List<librosPrestados> LbrosPretados;
+       public List<librosPrestados> LibrosPretados;
+       private List<Libros> librosPrestados;
 
        public String getNombre() {
               return nombre;
        }
-       public void setNombre(String nombre) {
-              this.nombre = nombre;
+       public void setNombre(Boolean b) {
+              this.nombre =  b;
+
        }
        public String getDocumento() {
               return documento;
@@ -20,11 +24,18 @@ public class Usuarios<librosPrestados>{
               this.documento = documento;
        }
        public List<Libros> getLibrosPrestados() {
-              return LbrosPretados;
+
+              return librosPrestados;
        }
        public void setLibrosPrestados(List<Libros> librosPrestados) {
               this.librosPrestados = librosPrestados;
        }
+    public boolean setNombre(boolean documento2) {
+       return documento2;
+    }
+    public Object getDocumentos() {
+        return null;
+    }
 
 
 }

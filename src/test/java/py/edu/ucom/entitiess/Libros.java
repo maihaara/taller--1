@@ -30,4 +30,13 @@ public class Libros {
        public void setPrestado(Boolean prestado) {
               this.prestado = prestado;
        }
-    }
+       public boolean getPrestados() {
+              return false;
+       }
+       public Object getPrestado() {
+        return null;
+       }
+       public void setPrestado(Object prestado2) {
+              return;
+       }
+}
