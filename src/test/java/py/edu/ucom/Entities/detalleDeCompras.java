@@ -1,22 +1,20 @@
 package py.edu.ucom.Entities;
 
-
-
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Map.Entry;
 
 public class detalleDeCompras {
     private static int codigoUnico = 1;
-    private int codigoDeCompra;
+    private int codigoCompra;
     private HashMap<String, Double> detalles;
     private double total;
-    private Cliente clientes;
+    private Cliente cliente;
 
     public detalleDeCompras(Cliente cliente) {
         this.detalles = new HashMap<>();
-        this.codigoDeCompra = codigoUnico;
+        this.codigoCompra = codigoUnico;
         codigoUnico++;
-        this.clientes = cliente;
+        this.cliente = cliente;
     }
 
     public void agregarProductos(Productos producto, int cantidad) {
@@ -26,19 +24,23 @@ public class detalleDeCompras {
 
     public double getTotal() {
         this.total = 0.0;
-        for (Map.Entry<String, Double> entrada : detalles.entrySet()) {
-            double subtotal = entrada.getValue();
+        for (Entry<String, Double> entrada : detalles.entrySet()) {
+            entrada.getValue();
             total += subtotal;
         }
         return total;
     }
 
+    private double subtotal() {
+        return 0;
+    }
+
     public int getCodigo() {
-        return codigoDeCompra;
+        return codigoCompra;
     }
 
     public Cliente getCliente() {
-        return clientes;
+        return cliente;
     }
 
     public HashMap<String, Double> getListado() {
