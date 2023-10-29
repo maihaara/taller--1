@@ -1,12 +1,15 @@
-package py.edu.ucom.test.entities;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package py.edu.ucom.entities;
+
+package py.edu.ucom.test.entities;
+
 
 import java.io.Serializable;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -25,7 +28,8 @@ import jakarta.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author maiha
+ * @author Jhony
+ * 
  */
 @Entity
 @Table(name = "cliente")
@@ -37,7 +41,7 @@ import jakarta.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cliente.findByApellidos", query = "SELECT c FROM Cliente c WHERE c.apellidos = :apellidos"),
     @NamedQuery(name = "Cliente.findByDocumento", query = "SELECT c FROM Cliente c WHERE c.documento = :documento"),
     @NamedQuery(name = "Cliente.findByEsClienteFiel", query = "SELECT c FROM Cliente c WHERE c.esClienteFiel = :esClienteFiel")})
-public class Cliente implements Serializable {
+public class Cliente<Venta> implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -59,5 +63,105 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "tipo_documento_id", referencedColumnName = "tipo_documento_id")
     @ManyToOne(optional = false)
     private TipoDocumento tipoDocumentoId;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteId")
-    private List<Venta> ventaList;}
+    private List<Venta> ventaList;
+
+    public Cliente() {
+    }
+
+    public Cliente(Integer clienteId) {
+        this.clienteId = clienteId;
+    }
+
+    public Cliente(Integer clienteId, String nombres, String apellidos, String documento) {
+        this.clienteId = clienteId;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.documento = documento;
+    }
+
+    public Integer getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(Integer clienteId) {
+        this.clienteId = clienteId;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    public Boolean getEsClienteFiel() {
+        return esClienteFiel;
+    }
+
+    public void setEsClienteFiel(Boolean esClienteFiel) {
+        this.esClienteFiel = esClienteFiel;
+    }
+
+    public TipoDocumento getTipoDocumentoId() {
+        return tipoDocumentoId;
+    }
+
+    public void setTipoDocumentoId(TipoDocumento tipoDocumentoId) {
+        this.tipoDocumentoId = tipoDocumentoId;
+    }
+
+    @XmlTransient
+    public List<Venta> getVentaList() {
+        return ventaList;
+    }
+
+    public void setVentaList(List<Venta> ventaList) {
+        this.ventaList = ventaList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (clienteId != null ? clienteId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Cliente)) {
+            return false;
+        }
+        Cliente other = (Cliente) object;
+        if ((this.clienteId == null && other.clienteId != null) || (this.clienteId != null && !this.clienteId.equals(other.clienteId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "py.com.fpj.crm.entity.gen.taller.Cliente[ clienteId=" + clienteId + " ]";
+    }
+
+}
+

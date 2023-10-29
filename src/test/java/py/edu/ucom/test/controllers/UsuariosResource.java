@@ -6,6 +6,7 @@ import jakarta.ws.rs.PathParam;
 
 @Path("/usuarios")
 public class UsuariosResource {
+    
     /* @Inject
     public DataSourceJSON ds;
     @GET
