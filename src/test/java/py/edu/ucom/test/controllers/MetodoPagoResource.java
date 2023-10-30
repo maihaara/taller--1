@@ -54,4 +54,36 @@ public class MetodoPagoResource {
         }
         return Response.ok(entity).build();     
     }
+
+    @GET
+    @Path("/codigo/{cod}")
+    public Response buscarPorCodigo(@PathParam("cod") String param) throws Exception {
+        List<MetodoPago> entity = this.service.buscarPorCodigo(param);
+
+        return Response.ok(entity).build();
+    }
+
+    @GET
+    @Path("/sum/")
+    public Response sumaId() throws Exception {
+        Long entity = this.service.sumIds();
+
+        return Response.ok(entity).build();
+    }
+
+
+
+
+
+    @GET
+    @Path("/Paginado/{Pagina}/{Cantidad}")
+    public Response paginado(@PathParam("Pagina") Integer pagina, @PathParam("Cantidad") Integer cantidad)
+        throws Exception {
+        Long entity = this.service.sumIds();
+
+        return Response.ok(entity).build();
+    }
+
+
+
 }

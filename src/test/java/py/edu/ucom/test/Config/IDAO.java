@@ -9,3 +9,4 @@ public interface IDAO<T,I> {
     void eliminar(I param);
     List<T> listar();
 }
+

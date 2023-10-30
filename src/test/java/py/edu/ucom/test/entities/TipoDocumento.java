@@ -23,10 +23,7 @@ import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Jhony
- */
+
 @Entity
 @Table(name = "tipo_documento")
 @XmlRootElement

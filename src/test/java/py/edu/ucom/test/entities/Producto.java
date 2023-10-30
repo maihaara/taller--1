@@ -27,7 +27,7 @@ import jakarta.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Jhony
+ * 
  */
 @Entity
 @Table(name = "producto")

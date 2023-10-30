@@ -28,10 +28,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 
 
-/**
- *
- * @author Jhony
- */
+
 @Entity
 @Table(name = "venta")
 @XmlRootElement

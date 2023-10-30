@@ -1,30 +1,34 @@
 package py.edu.ucom.test.services;
+
+
+
 import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import py.edu.ucom.test.Config.IDAO;
-import py.edu.ucom.test.entities.Producto;
-import py.edu.ucom.test.services.ProductoService;
-import py.edu.ucom.test.repositories.ProductoRepository;
+import py.edu.ucom.test.entities.TipoDocumento;
+import py.edu.ucom.test.repositories.TipoDocumentoRepository;
+
 
 @ApplicationScoped
-public class ProductoService implements IDAO<Producto,Integer> {
+public class TipoDocumentoService implements IDAO<TipoDocumento, Integer> {
+
     @Inject
-    private ProductoRepository repository;
+    private TipoDocumentoRepository repository;
 
     @Override
-    public Producto obtener(Integer param) {
+    public TipoDocumento obtener(Integer param) {
         return this.repository.findById(param).orElse(null);
     }
 
     @Override
-    public Producto agregar(Producto param) {
+    public TipoDocumento agregar(TipoDocumento param) {
         return this.repository.save(param);
     }
 
     @Override
-    public Producto modificar(Producto param) {
+    public TipoDocumento modificar(TipoDocumento param) {
         return this.repository.save(param);
     }
 
@@ -34,9 +38,8 @@ public class ProductoService implements IDAO<Producto,Integer> {
     }
 
     @Override
-    public List<Producto> listar() {
+    public List<TipoDocumento> listar() {
         return this.repository.findAll();
     }
 
 }
-

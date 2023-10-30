@@ -9,36 +9,58 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-import py.edu.ucom.test.entities.Producto;
-import py.edu.ucom.test.services.ProductoService;
 
-@Path("/producto")
-public class ProductoResource {
+import py.edu.ucom.test.entities.TipoDocumento;
+import py.edu.ucom.test.services.TipoDocumentoService;
+
+
+@Path("/TipoDocumento")
+public class TipoDocumentoResource {
 
     @Inject
-    public ProductoService service;
+    public TipoDocumentoService service;
+
+
 
     @GET
-    public List<Producto> listar(){
+    public List<TipoDocumento> listar() {
         return this.service.listar();
     }
+
+
+
+
+
     @DELETE
     @Path("{id}")
     public void eliminar(Integer id) {
         this.service.eliminar(id);
     }
+
+
+
+
+
     @POST
-    public Producto agregar (Producto param){
+    public TipoDocumento agregar(TipoDocumento param) {
         return this.service.agregar(param);
     }
+
+
+
+
     @PUT
-    public Producto modificar (Producto param){
+    public TipoDocumento modificar(TipoDocumento param) {
         return this.service.modificar(param);
     }
+
+
+
+
     @GET
     @Path("{id}")
-    public Producto obtener(@PathParam("id")Integer param){
-        return this.service.obtener(param);     
+    public TipoDocumento obtener(@PathParam("id") Integer param) {
+        return this.service.obtener(param);
     }
-}
 
+}

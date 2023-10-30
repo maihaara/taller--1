@@ -56,11 +56,11 @@ public class VentaService implements IDAO<Venta,Integer> {
         data.setFecha(v.getFecha());
         List<VentaDetalleDTO> detalle= new ArrayList<>();
         for(VentaDetalle item : v.getVentaDetalleList()){
-                VentaDetalleDTO vdto = new VentaDetalleDTO();
-                vdto.setCantidad(item.getCantidad());
-                vdto.setSubtotal(item.getSubtotal());
-                vdto.setDescripcion( item.getProductoId().getDescripcion());
-                detalle.add( vdto);
+            VentaDetalleDTO vdto = new VentaDetalleDTO();
+            vdto.setCantidad(item.getCantidad());
+            vdto.setSubtotal(item.getSubtotal());
+            vdto.setDescripcion( item.getProductoId().getDescripcion());
+            detalle.add( vdto);
         }
         data.setDetalle( detalle);
 

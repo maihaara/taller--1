@@ -5,6 +5,11 @@ import java.util.List;
 import jakarta.enterprise.context.ApplicationScoped;
 import py.edu.ucom.test.Config.IDAO;
 import py.edu.ucom.test.entities.Cliente;
+import py.edu.ucom.test.entities.TipoDocumento;
+import py.edu.ucom.test.repositories.TipoDocumentoRepository;
+
+
+
 
 @ApplicationScoped
 public class ClienteService implements IDAO<Cliente, Integer>{

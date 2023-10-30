@@ -1,9 +1,12 @@
 package py.edu.ucom.test.dto;
 
+
+
 import java.util.Date;
 import java.util.List;
 
 import py.edu.ucom.test.entities.VentaDetalle;
+
 
 public class ResumenVentaDTO {
 

@@ -21,10 +21,6 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Jhony
- */
 @Entity
 @Table(name = "venta_detalle")
 @XmlRootElement
