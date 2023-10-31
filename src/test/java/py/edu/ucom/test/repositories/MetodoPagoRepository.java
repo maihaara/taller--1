@@ -9,7 +9,6 @@ import py.edu.ucom.test.entities.MetodoPago;
 
 public interface MetodoPagoRepository extends JpaRepository<MetodoPago,Integer> {
 
-
     public List<MetodoPago> findByCodigo(String codigo);
 
     @Query("SELECT SUM(m.metodoPagoId) FROM MetodoPago m")

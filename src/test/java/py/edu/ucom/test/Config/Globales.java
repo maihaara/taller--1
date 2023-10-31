@@ -15,5 +15,7 @@ public  class Globales {
         public static final  String LISTADO_ERR = "No se han recuperado los registros.";
     }
 
+
+
     
 }

@@ -4,6 +4,7 @@ public class VentaDetalleDTO {
     public String descripcion;
     public Integer cantidad;
     public Integer subtotal;
+    
 
     public String getDescripcion() {
         return descripcion;

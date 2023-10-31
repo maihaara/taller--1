@@ -9,8 +9,6 @@ import py.edu.ucom.test.entities.TipoDocumento;
 import py.edu.ucom.test.repositories.TipoDocumentoRepository;
 
 
-
-
 @ApplicationScoped
 public class ClienteService implements IDAO<Cliente, Integer>{
 

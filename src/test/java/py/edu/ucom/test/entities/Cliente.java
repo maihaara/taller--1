@@ -41,7 +41,10 @@ import jakarta.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cliente.findByApellidos", query = "SELECT c FROM Cliente c WHERE c.apellidos = :apellidos"),
     @NamedQuery(name = "Cliente.findByDocumento", query = "SELECT c FROM Cliente c WHERE c.documento = :documento"),
     @NamedQuery(name = "Cliente.findByEsClienteFiel", query = "SELECT c FROM Cliente c WHERE c.esClienteFiel = :esClienteFiel")})
-public class Cliente<Venta> implements Serializable {
+
+
+
+    public class Cliente<Venta> implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -161,6 +164,9 @@ public class Cliente<Venta> implements Serializable {
     @Override
     public String toString() {
         return "py.com.fpj.crm.entity.gen.taller.Cliente[ clienteId=" + clienteId + " ]";
+    }
+
+    public void setTipoDocumento(TipoDocumento tipoDocu) {
     }
 
 }

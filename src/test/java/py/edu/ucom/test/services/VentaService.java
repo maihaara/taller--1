@@ -1,22 +1,32 @@
 package py.edu.ucom.test.services;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.jboss.logging.Logger;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import py.edu.ucom.test.Config.IDAO;
 import py.edu.ucom.test.entities.Cliente;
+import py.edu.ucom.test.entities.MetodoPago;
 import py.edu.ucom.test.entities.Venta;
 import py.edu.ucom.test.entities.VentaDetalle;
 import py.edu.ucom.test.dto.ResumenVentaDTO;
 import py.edu.ucom.test.dto.VentaDetalleDTO;
+import py.edu.ucom.test.repositories.VentaDetalleRepository;
 import py.edu.ucom.test.repositories.VentaRepository;
+
+
 
 @ApplicationScoped
 public class VentaService implements IDAO<Venta,Integer> {
+    private static final Logger LOG = Logger.getLogger(VentaService.class);
     @Inject
-    public VentaRepository repository;
+    private VentaRepository repository;
+    @Inject
+    private VentaDetalleRepository repositoryDetalle;
+
 
     @Override
     public Venta obtener(Integer param) {
@@ -24,10 +34,40 @@ public class VentaService implements IDAO<Venta,Integer> {
         return this.repository.findById(param).orElse(null);
     }
 
+
+
     @Override
+    @Transactional
+
     public Venta agregar(Venta param) {
-        // TODO Auto-generated method stub
-        return this.repository.save(param);
+        try{
+            LOG.info(param);
+
+            Venta aux = new Venta();
+            aux.setClienteId(param.getClienteId());
+            aux.setFecha(param.getFecha());
+            aux.setMetodoPagoId(param.getMetodoPagoId());
+            aux.setTotal(param.getTotal());
+
+            Venta saved = this.repository.save(aux);
+            System.out.println(aux.toString());
+
+            List<VentaDetalle> vdList = param.getVentaDetalleList();
+            for(VentaDetalle item: vdList){
+                VentaDetalle vdt = new VentaDetalle(saved, null, null, 0);
+                vdt.setVentaId(saved);
+                vdt.setProductoId(item.getProductoId());
+                vdt.setSubtotal(item.getSubtotal());
+
+                this.repositoryDetalle.save(vdt);
+
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return param;
+        
     }
 
     @Override
@@ -66,6 +106,15 @@ public class VentaService implements IDAO<Venta,Integer> {
 
         return data;
     }
+    public Venta crearVenta(Cliente cliente, MetodoPago metodoPago) {
+        Venta venta = new Venta();
+        venta.setClienteId(cliente);
+        venta.setFecha(new Timestamp(System.currentTimeMillis()));
+        venta.setMetodoPagoId(metodoPago);
+        venta.setTotal(0);
+        return this.repository.save(venta);
+    }
+    
 
 }
 

@@ -74,7 +74,6 @@ public class MetodoPagoResource {
 
 
 
-
     @GET
     @Path("/Paginado/{Pagina}/{Cantidad}")
     public Response paginado(@PathParam("Pagina") Integer pagina, @PathParam("Cantidad") Integer cantidad)

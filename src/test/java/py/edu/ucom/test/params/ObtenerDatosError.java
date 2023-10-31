@@ -1,4 +1,6 @@
 package py.edu.ucom.test.params;
+
+
 public class ObtenerDatosError {
     public String mensaje;
     public String codigo;

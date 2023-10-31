@@ -1,7 +1,6 @@
 package py.edu.ucom.test.services;
 
 
-
 import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -9,6 +8,7 @@ import jakarta.inject.Inject;
 import py.edu.ucom.test.Config.IDAO;
 import py.edu.ucom.test.entities.TipoDocumento;
 import py.edu.ucom.test.repositories.TipoDocumentoRepository;
+
 
 
 @ApplicationScoped
@@ -40,6 +40,10 @@ public class TipoDocumentoService implements IDAO<TipoDocumento, Integer> {
     @Override
     public List<TipoDocumento> listar() {
         return this.repository.findAll();
+    }
+
+    public TipoDocumento obtener(TipoDocumento tipoDocumentoId) {
+        return null;
     }
 
 }

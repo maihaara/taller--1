@@ -6,6 +6,7 @@ package py.edu.ucom.test.entities;
  */
 
 
+
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
@@ -51,10 +52,9 @@ public class VentaDetalle implements Serializable {
     @ManyToOne(optional = false)
     private Venta ventaId;
 
-    public VentaDetalle() {
+    public VentaDetalle(Venta venta, Producto producto, Integer cantidadd, int subtotall) {
     }
-
-    public VentaDetalle(Integer ventaDetalleId) {
+ {
         this.ventaDetalleId = ventaDetalleId;
     }
 
@@ -127,6 +127,12 @@ public class VentaDetalle implements Serializable {
     @Override
     public String toString() {
         return "py.com.fpj.crm.entity.gen.taller.VentaDetalle[ ventaDetalleId=" + ventaDetalleId + " ]";
+    }
+
+    public class crearVentaDetalle {
+
+        public crearVentaDetalle(Venta venta, Producto producto, Integer cantidad, int subtotal) {
+        }
     }
 
 }

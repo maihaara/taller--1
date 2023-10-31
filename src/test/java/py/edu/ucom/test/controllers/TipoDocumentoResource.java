@@ -30,7 +30,6 @@ public class TipoDocumentoResource {
 
 
 
-
     @DELETE
     @Path("{id}")
     public void eliminar(Integer id) {

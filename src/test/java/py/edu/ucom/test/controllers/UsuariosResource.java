@@ -6,16 +6,8 @@ import jakarta.ws.rs.PathParam;
 
 @Path("/usuarios")
 public class UsuariosResource {
-
-
-
-
-
-    
-
-     @POST
+    @POST
     public void guardar(Object usuario){
-      //  this.ds.guardarUsuarios(usuario);
-    }
 
+    }
 }

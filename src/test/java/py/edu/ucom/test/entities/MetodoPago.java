@@ -34,7 +34,9 @@ import jakarta.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "MetodoPago.findByMetodoPagoId", query = "SELECT m FROM MetodoPago m WHERE m.metodoPagoId = :metodoPagoId"),
     @NamedQuery(name = "MetodoPago.findByCodigo", query = "SELECT m FROM MetodoPago m WHERE m.codigo = :codigo"),
     @NamedQuery(name = "MetodoPago.findByDescripcion", query = "SELECT m FROM MetodoPago m WHERE m.descripcion = :descripcion")})
-public class MetodoPago<Venta> implements Serializable {
+
+
+    public class MetodoPago<Venta> implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
